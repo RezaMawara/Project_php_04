@@ -1,8 +1,5 @@
-// script.js
-
 var galleryImages = document.querySelectorAll('.gallery img');
-
-// Loop through each image
+//
 galleryImages.forEach(function(image) {
     // Add event listener for each image
     image.addEventListener('click', function() {
@@ -22,8 +19,7 @@ galleryImages.forEach(function(image) {
         caption.textContent = alt;
     });
 });
-
-// Close the overlay when clicked outside the image
+// 
 document.getElementById('overlay').addEventListener('click', function(event) {
     if (event.target === this) {
         this.classList.remove('active');
@@ -38,7 +34,6 @@ document.querySelectorAll('section').forEach(function(section) {
     section.style.display = 'block';
 });
 
-// Make all navigation links point to the corresponding sections when clicked
 document.querySelectorAll('nav a').forEach(function(link) {
     link.addEventListener('click', function(event) {
         var targetId = link.getAttribute('href').substring(1); // Get the target ID from the href attribute
@@ -65,5 +60,25 @@ function createStar() {
     });
 }
 
-// Panggil createStar setiap beberapa detik
-setInterval(createStar, 150);
+
+setInterval(createStar, 5000); 
+
+// script.js
+
+document.addEventListener("DOMContentLoaded", function() {
+    var titles = document.querySelectorAll('.blog-title');
+
+    titles.forEach(function(title) {
+        title.addEventListener('click', function() {
+            var id = this.getAttribute('data-id');
+            var content = document.getElementById('content-' + id);
+
+            // Toggle display of the content
+            if (content.style.display === 'none') {
+                content.style.display = 'block';
+            } else {
+                content.style.display = 'none';
+            }
+        });
+    });
+});
